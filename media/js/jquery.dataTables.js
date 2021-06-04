@@ -4912,6 +4912,15 @@
 							pages = all ? 1 : Math.ceil( visRecords / len ),
 							buttons = plugin(page, pages),
 							i, ien;
+						
+						//There is no reason to show the pagination footer if there are less than 2 pages.
+						if(pages == 1){
+							$(settings.nTableWrapper).find(".dataTables_paginate").hide();
+						} else {
+							$(settings.nTableWrapper).find(".dataTables_paginate").show();
+						}
+						
+						
 	
 						for ( i=0, ien=features.p.length ; i<ien ; i++ ) {
 							_fnRenderer( settings, 'pageButton' )(
